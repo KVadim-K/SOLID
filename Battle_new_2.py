@@ -12,7 +12,11 @@ class Hero:
         print(f"{self.name} атакует {other.name} и наносит {damage} урона. У {other.name} осталось {other.health} здоровья.")
 
     def is_alive(self):
-        return self.health > 0
+        #return self.health > 0
+        if self.health > 0:
+            return True
+        else:
+            return False
 
 class Game:
     def __init__(self, player_name):
@@ -22,11 +26,16 @@ class Game:
     def start(self):
         print("Игра началась!")
         while self.player.is_alive() and self.computer.is_alive():
-            self.player_turn()
+            attacker = random.choice([self.player, self.computer])
+            if attacker == self.player:
+                self.player_turn()
+            else:
+                self.computer_turn()
+
             if not self.computer.is_alive():
                 print("Игрок победил!")
                 break
-            self.computer_turn()
+
             if not self.player.is_alive():
                 print("Компьютер победил!")
                 break
