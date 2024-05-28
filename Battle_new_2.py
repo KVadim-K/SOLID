@@ -12,7 +12,7 @@ class Hero:
         print(f"{self.name} атакует {other.name} и наносит {damage} урона. У {other.name} осталось {other.health} здоровья.")
 
     def is_alive(self):
-        #return self.health > 0
+        # return self.health > 0
         if self.health > 0:
             return True
         else:
@@ -33,7 +33,7 @@ class Game:
                 self.computer_turn()
 
             if not self.computer.is_alive():
-                print("Игрок победил!")
+                print(f"{self.player.name}-Победил!")
                 break
 
             if not self.player.is_alive():
